@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЭКСИТ — Строительство автомоек и гаражных комплексов под ключ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-blue: #f8fafc;
+            --dark-blue: #ffffff;
+            --medium-blue: #f1f5f9;
+            --light-blue: #e2e8f0;
+            --accent-blue: #2563eb;
+            --bright-blue: #3b82f6;
+            --text-gray: #64748b;
+            --text-light: #334155;
+            --white: #0f172a;
+            --light-bg: #f8fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--deep-blue);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--accent-blue);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--bright-blue);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%),
+                        url('https://i.postimg.cc/QMT7Gj7K/Moi-ka-EKSIT-eng.jpg') center/cover;
+            z-index: -2;
+        }
+
+        /* Blueprint Background SVG */
+        .blueprint-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--accent-blue);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--bright-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: #ffffff;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--bright-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item {
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .stat-number span {
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            margin-bottom: 64px;
+            max-width: 600px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        /* Blueprint Background for sections */
+        .blueprint-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .blueprint-bg svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--dark-blue);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .about-feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .about-feature-text h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .about-feature-text p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 16px;
+            filter: grayscale(10%);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--deep-blue);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--dark-blue);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 40px 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-blue);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(37, 99, 235, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: var(--accent-blue);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            background: var(--dark-blue);
+            position: relative;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .advantage-item {
+            display: flex;
+            gap: 24px;
+            padding: 32px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .advantage-item:hover {
+            background: rgba(37, 99, 235, 0.03);
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+
+        .advantage-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .advantage-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .advantage-content p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* Cases Section */
+        .cases {
+            background: var(--deep-blue);
+            position: relative;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            cursor: pointer;
+            background: var(--dark-blue);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .case-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .case-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, transparent 100%);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .case-card:hover .case-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .case-tag {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .case-overlay h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .case-overlay p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--dark-blue);
+            position: relative;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-blue) var(--progress, 0%), rgba(0,0,0,0.1) var(--progress, 0%));
+        }
+
+        .process-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--medium-blue);
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--accent-blue);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .process-step h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--medium-blue) 0%, var(--accent-blue) 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(15, 23, 42, 0.8);
+            margin-bottom: 32px;
+        }
+
+        .cta-btn {
+            background: #ffffff;
+            color: var(--accent-blue);
+            padding: 18px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--deep-blue);
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: var(--dark-blue);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-stars {
+            color: var(--accent-blue);
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--medium-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .testimonial-info h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .testimonial-info p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark-blue);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .contact-info > p {
+            color: var(--text-gray);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            font-size: 24px;
+        }
+
+        .contact-method div h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-method div p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .contact-form {
+            background: var(--medium-blue);
+            padding: 48px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            color: var(--white);
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--accent-blue);
+            color: #ffffff;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--bright-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-blue);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-gray);
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-bottom p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--dark-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-stats {
+                gap: 40px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .advantages-grid,
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 140px 0 80px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 32px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--deep-blue);
+            z-index: 999;
+            padding: 100px 24px 40px;
+            transform: translateX(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 24px;
+        }
+
+        .mobile-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 32px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://i.postimg.cc/pyN1snWk/logo-bez-fona.png" alt="ЭКСИТ">
+                <span class="logo-text">ЭКСИТ<span>.</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#cases">Проекты</a></li>
+                <li><a href="#process">Процесс</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Получить расчет</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="#about" onclick="toggleMenu()">О компании</a></li>
+            <li><a href="#services" onclick="toggleMenu()">Услуги</a></li>
+            <li><a href="#cases" onclick="toggleMenu()">Проекты</a></li>
+            <li><a href="#process" onclick="toggleMenu()">Процесс</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Контакты</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <!-- Blueprint SVG Background -->
+        <svg class="blueprint-svg" viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                </pattern>
+            </defs>
+            
+            <!-- Grid -->
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <!-- Large Circle Top Right -->
+            <g transform="translate(2000, 300)" stroke="#cbd5e1" stroke-width="1.5" fill="none">
+                <circle r="200" />
+                <circle r="150" />
+                <circle r="100" />
+                <circle r="60" />
+                <!-- Spokes -->
+                <g stroke-width="1">
+                    <line x1="0" y1="-200" x2="0" y2="200" />
+                    <line x1="-200" y1="0" x2="200" y2="0" />
+                    <line x1="-141" y1="-141" x2="141" y2="141" />
+                    <line x1="141" y1="-141" x2="-141" y2="141" />
+                    <line x1="-173" y1="-100" x2="173" y2="100" />
+                    <line x1="-173" y1="100" x2="173" y2="-100" />
+                    <line x1="-100" y1="-173" x2="100" y2="173" />
+                    <line x1="100" y1="-173" x2="-100" y2="173" />
+                </g>
+                <!-- Small circles at intersections -->
+                <circle cx="0" cy="-100" r="4" stroke="#94a3b8" />
+                <circle cx="0" cy="100" r="4" stroke="#94a3b8" />
+                <circle cx="100" cy="0" r="4" stroke="#94a3b8" />
+                <circle cx="-100" cy="0" r="4" stroke="#94a3b8" />
+            </g>
+            
+            <!-- Building Floor Plan Left -->
+            <g transform="translate(300, 400)" stroke="#cbd5e1" stroke-width="1.5" fill="none">
+                <!-- Main building -->
+                <rect x="0" y="0" width="500" height="600" />
+                <!-- Inner walls -->
+                <line x1="150" y1="0" x2="150" y2="600" stroke-width="1" />
+                <line x1="300" y1="0" x2="300" y2="600" stroke-width="1" />
+                <line x1="0" y1="200" x2="500" y2="200" stroke-width="1" />
+                <line x1="0" y1="400" x2="500" y2="400" stroke-width="1" />
+                <!-- Doors (arcs) -->
+                <path d="M 150 200 Q 170 220 150 240" stroke="#94a3b8" fill="none" />
+                <path d="M 300 200 Q 320 220 300 240" stroke="#94a3b8" fill="none" />
+                <path d="M 150 400 Q 170 420 150 440" stroke="#94a3b8" fill="none" />
+                <!-- Windows -->
+                <rect x="50" y="-10" width="40" height="10" stroke="#94a3b8" />
+                <rect x="200" y="-10" width="40" height="10" stroke="#94a3b8" />
+                <rect x="350" y="-10" width="40" height="10" stroke="#94a3b8" />
+                <!-- Dimension lines -->
+                <line x1="-50" y1="100" x2="0" y2="100" stroke="#94a3b8" />
+                <line x1="-50" y1="100" x2="-50" y2="95" stroke="#94a3b8" />
+                <line x1="-50" y1="100" x2="-50" y2="105" stroke="#94a3b8" />
+                <line x1="0" y1="100" x2="0" y2="95" stroke="#94a3b8" />
+                <line x1="0" y1="100" x2="0" y2="105" stroke="#94a3b8" />
+                <!-- Bolts -->
+                <circle cx="100" cy="100" r="3" stroke="#94a3b8" />
+                <circle cx="225" cy="300" r="3" stroke="#94a3b8" />
+                <circle cx="400" cy="500" r="3" stroke="#94a3b8" />
+            </g>
+            
+            <!-- Arched Structure Right -->
+            <g transform="translate(1800, 1100)" stroke="#cbd5e1" stroke-width="1.5" fill="none">
+                <path d="M -125 -216 A 250 250 0 0 1 125 -216" />
+                <path d="M -100 -173 A 200 200 0 0 1 100 -173" />
+                <line x1="-125" y1="-216" x2="-100" y2="-173" />
+                <line x1="125" y1="-216" x2="100" y2="-173" />
+                <line x1="0" y1="-250" x2="0" y2="-200" />
+                <line x1="-87" y1="-233" x2="-70" y2="-186" />
+                <line x1="87" y1="-233" x2="70" y2="-186" />
+            </g>
+            
+            <!-- Circle Bottom Right -->
+            <g transform="translate(2100, 1300)" stroke="#cbd5e1" stroke-width="1.5" fill="none">
+                <circle r="150" />
+                <circle r="110" />
+                <circle r="70" />
+                <circle r="40" />
+                <!-- Spokes -->
+                <g stroke-width="1">
+                    <line x1="0" y1="-150" x2="0" y2="150" />
+                    <line x1="-150" y1="0" x2="150" y2="0" />
+                    <line x1="-106" y1="-106" x2="106" y2="106" />
+                    <line x1="106" y1="-106" x2="-106" y2="106" />
+                </g>
+                <!-- Small circles -->
+                <circle cx="0" cy="-75" r="3" stroke="#94a3b8" />
+                <circle cx="75" cy="0" r="3" stroke="#94a3b8" />
+                <circle cx="0" cy="75" r="3" stroke="#94a3b8" />
+                <circle cx="-75" cy="0" r="3" stroke="#94a3b8" />
+            </g>
+            
+            <!-- Stairs Bottom Left -->
+            <g transform="translate(100, 1400)" stroke="#e2e8f0" stroke-width="1" fill="none">
+                <line x1="0" y1="0" x2="150" y2="0" />
+                <line x1="150" y1="0" x2="150" y2="-15" />
+                <line x1="0" y1="-15" x2="150" y2="-15" />
+                <line x1="150" y1="-15" x2="150" y2="-30" />
+                <line x1="0" y1="-30" x2="150" y2="-30" />
+                <line x1="150" y1="-30" x2="150" y2="-45" />
+                <line x1="0" y1="-45" x2="150" y2="-45" />
+                <line x1="150" y1="-45" x2="150" y2="-60" />
+                <line x1="0" y1="-60" x2="150" y2="-60" />
+                <line x1="150" y1="-60" x2="150" y2="-75" />
+                <line x1="0" y1="-75" x2="150" y2="-75" />
+                <line x1="150" y1="-75" x2="150" y2="-90" />
+                <line x1="0" y1="-90" x2="150" y2="-90" />
+            </g>
+            
+            <!-- Partial Circle Bottom Left -->
+            <g transform="translate(150, 1300)" stroke="#cbd5e1" stroke-width="1.5" fill="none">
+                <path d="M 0 0 A 100 100 0 0 1 0 -200" />
+                <path d="M 25 0 A 75 75 0 0 1 25 -150" />
+                <path d="M 50 0 A 50 50 0 0 1 50 -100" />
+            </g>
+            
+            <!-- Diagonal Hatching -->
+            <g stroke="#e2e8f0" stroke-width="1">
+                <line x1="800" y1="100" x2="700" y2="300" />
+                <line x1="830" y1="100" x2="730" y2="300" />
+                <line x1="860" y1="100" x2="760" y2="300" />
+                <line x1="890" y1="100" x2="790" y2="300" />
+                <line x1="920" y1="100" x2="820" y2="300" />
+                <line x1="950" y1="100" x2="850" y2="300" />
+                <line x1="980" y1="100" x2="880" y2="300" />
+                <line x1="1010" y1="100" x2="910" y2="300" />
+                <line x1="1040" y1="100" x2="940" y2="300" />
+                <line x1="1070" y1="100" x2="970" y2="300" />
+            </g>
+        </svg>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Работаем по всей России</div>
+                <h1>Строительство автомоек <span>и гаражных комплексов под ключ</span></h1>
+                <p class="hero-subtitle">Проектирование, поставка оборудования и монтаж. Комплексные решения для вашего бизнеса с гарантией качества.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        Получить расчет
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#cases" class="btn-secondary">Смотреть проекты</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25<span>+</span></div>
+                        <div class="stat-label">лет в индустрии</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150<span>+</span></div>
+                        <div class="stat-label">реализованных проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98<span>%</span></div>
+                        <div class="stat-label">клиентов рекомендуют</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="grid2" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <!-- Decorative elements -->
+                <circle cx="2200" cy="200" r="150" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.5"/>
+                <circle cx="2200" cy="200" r="100" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.5"/>
+                <circle cx="200" cy="1400" r="120" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <div class="section-label">О компании</div>
+                    <h2 class="section-title">Надежный партнер для вашего бизнеса</h2>
+                    <p>ООО «ЭКСИТ» — строительно-инжиниринговая компания с 25-летним опытом. Мы специализируемся на создании современных моечных и гаражных комплексов для автотранспорта любой сложности.</p>
+                    <p>Работаем с крупнейшими производителями оборудования Christ (Германия), Aquarama (Италия), Акватех (Россия/Италия). Предоставляем полный цикл услуг: от проектирования до ввода в эксплуатацию.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">⚡</div>
+                            <div class="about-feature-text">
+                                <h4>Оперативность</h4>
+                                <p>Расчет за 24 часа</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🛡️</div>
+                            <div class="about-feature-text">
+                                <h4>Гарантия</h4>
+                                <p>На все виды работ</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">📋</div>
+                            <div class="about-feature-text">
+                                <h4>Документация</h4>
+                                <p>Полный пакет документов</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🤝</div>
+                            <div class="about-feature-text">
+                                <h4>Поддержка</h4>
+                                <p>Техническое обслуживание</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://i.postimg.cc/9Q4TbNRf/DSC-6831.jpg" alt="Автобаза ПС РФ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <g transform="translate(200, 300)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <rect x="0" y="0" width="300" height="400" />
+                    <line x1="100" y1="0" x2="100" y2="400" />
+                    <line x1="200" y1="0" x2="200" y2="400" />
+                    <line x1="0" y1="133" x2="300" y2="133" />
+                    <line x1="0" y1="266" x2="300" y2="266" />
+                </g>
+                <g transform="translate(1900, 1200)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <circle r="100" />
+                    <circle r="70" />
+                    <circle r="40" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Услуги</div>
+                <h2 class="section-title">Комплексные решения для автомоек и гаражей</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Строительство под ключ</h3>
+                    <p>Полный цикл работ: от проектирования до сдачи готового объекта. Все коммуникации, фундамент, здание и инфраструктура.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Монтаж оборудования</h3>
+                    <p>Профессиональный монтаж тоннельных и портальных моек, систем водоподготовки и очистки.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3>Гаражные комплексы</h3>
+                    <p>Строительство многоуровневых и наземных гаражей для парковок любой вместимости.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📦</div>
+                    <h3>Поставка оборудования</h3>
+                    <p>Прямые поставки от ведущих европейских и российских производителей с официальной гарантией.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📐</div>
+                    <h3>Индивидуальные проекты</h3>
+                    <p>Разработка уникальных решений под ваши требования, площадку и бюджет.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔧</div>
+                    <h3>Техническое обслуживание</h3>
+                    <p>Сервисное обслуживание, ремонт и модернизация действующих моечных комплексов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <g transform="translate(2100, 400)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <circle r="180" />
+                    <circle r="135" />
+                    <circle r="90" />
+                    <line x1="0" y1="-180" x2="0" y2="180" />
+                    <line x1="-180" y1="0" x2="180" y2="0" />
+                    <line x1="-127" y1="-127" x2="127" y2="127" />
+                    <line x1="127" y1="-127" x2="-127" y2="127" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Преимущества</div>
+                <h2 class="section-title">Почему выбирают ЭКСИТ</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item fade-in">
+                    <div class="advantage-number">01</div>
+                    <div class="advantage-content">
+                        <h3>Работа под ключ</h3>
+                        <p>Берем на себя все этапы: проектирование, согласование, строительство, монтаж оборудования и пусконаладку. Вы получаете готовый бизнес.</p>
+                    </div>
+                </div>
+                <div class="advantage-item fade-in">
+                    <div class="advantage-number">02</div>
+                    <div class="advantage-content">
+                        <h3>Проверенное оборудование</h3>
+                        <p>Сотрудничаем только с сертифицированными производителями. Гарантия на оборудование до 5 лет.</p>
+                    </div>
+                </div>
+                <div class="advantage-item fade-in">
+                    <div class="advantage-number">03</div>
+                    <div class="advantage-content">
+                        <h3>25 лет опыта</h3>
+                        <p>Реализовали более 150 проектов для крупнейших автотранспортных комбинатов, автобаз и коммерческих автомоек.</p>
+                    </div>
+                </div>
+                <div class="advantage-item fade-in">
+                    <div class="advantage-number">04</div>
+                    <div class="advantage-content">
+                        <h3>Гарантия качества</h3>
+                        <p>Предоставляем гарантию на все строительные работы и монтаж. Сервисная поддержка 24/7.</p>
+                    </div>
+                </div>
+                <div class="advantage-item fade-in">
+                    <div class="advantage-number">05</div>
+                    <div class="advantage-content">
+                        <h3>Оптимальные сроки</h3>
+                        <p>Четкое соблюдение дедлайнов. Средний срок строительства — от 3 до 6 месяцев в зависимости от сложности.</p>
+                    </div>
+                </div>
+                <div class="advantage-item fade-in">
+                    <div class="advantage-number">06</div>
+                    <div class="advantage-content">
+                        <h3>Финансовая прозрачность</h3>
+                        <p>Фиксированная смета без скрытых платежей. Помогаем с получением кредитов и лизинга.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="cases" id="cases">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <g transform="translate(150, 200)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <rect x="0" y="0" width="400" height="300" />
+                    <line x1="133" y1="0" x2="133" y2="300" />
+                    <line x1="266" y1="0" x2="266" y2="300" />
+                    <line x1="0" y1="150" x2="400" y2="150" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Проекты</div>
+                <h2 class="section-title">Реализованные объекты</h2>
+            </div>
+            <div class="cases-grid">
+                <div class="case-card fade-in">
+                    <img src="https://i.postimg.cc/QMT7Gj7K/Moi-ka-EKSIT-eng.jpg" alt="Портальная автомойка Christ">
+                    <div class="case-overlay">
+                        <span class="case-tag">Москва</span>
+                        <h3>Портальная автомойка Christ</h3>
+                        <p>Тоннельная мойка Christ Varius для легкового транспорта</p>
+                    </div>
+                </div>
+                <div class="case-card fade-in">
+                    <img src="https://i.postimg.cc/jj7f0Rfc/Moi-ka-EKSIT-eng1.jpg" alt="Тоннельная автомойка Christ">
+                    <div class="case-overlay">
+                        <span class="case-tag">Санкт-Петербург</span>
+                        <h3>Тоннельная автомойка Christ</h3>
+                        <p>Портальная мойка Christ с синими щетками</p>
+                    </div>
+                </div>
+                <div class="case-card fade-in">
+                    <img src="https://i.postimg.cc/LXvMnDVs/IMG-4753m.jpg" alt="Автобаза 2 УДП РФ">
+                    <div class="case-overlay">
+                        <span class="case-tag">Автобаза 2 УДП РФ</span>
+                        <h3>Портальная автомойка Aquatech S5</h3>
+                        <p>Монтаж оборудования для государственного учреждения</p>
+                    </div>
+                </div>
+                <div class="case-card fade-in">
+                    <img src="https://i.postimg.cc/d3mnqNRb/IMG-4764m.jpg" alt="Дом правительства РФ">
+                    <div class="case-overlay">
+                        <span class="case-tag">Дом правительства РФ</span>
+                        <h3>Aquatech S5</h3>
+                        <p>Портальная мойка для правительственного автопарка</p>
+                    </div>
+                </div>
+                <div class="case-card fade-in">
+                    <img src="https://i.postimg.cc/9Q4TbNRf/DSC-6831.jpg" alt="Автобаза ПС РФ">
+                    <div class="case-overlay">
+                        <span class="case-tag">Автобаза ПС РФ</span>
+                        <h3>Портальная мойка Stargate</h3>
+                        <p>Монтаж оборудования Aquarama</p>
+                    </div>
+                </div>
+                <div class="case-card fade-in">
+                    <img src="https://i.postimg.cc/pL98C1h2/DSC-6829.jpg" alt="Автобаза ПС РФ">
+                    <div class="case-overlay">
+                        <span class="case-tag">Автобаза ПС РФ</span>
+                        <h3>Моечный комплекс</h3>
+                        <p>Комплексное решение для автобазы</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <g transform="translate(2200, 1300)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <circle r="200" />
+                    <circle r="150" />
+                    <circle r="100" />
+                    <line x1="0" y1="-200" x2="0" y2="200" />
+                    <line x1="-200" y1="0" x2="200" y2="0" />
+                    <line x1="-141" y1="-141" x2="141" y2="141" />
+                    <line x1="141" y1="-141" x2="-141" y2="141" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Как мы работаем</div>
+                <h2 class="section-title">Прозрачный процесс от заявки до запуска</h2>
+            </div>
+            <div class="process-steps fade-in">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Заявка</h4>
+                    <p>Оставляете заявку на сайте или звоните нам</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Консультация</h4>
+                    <p>Анализируем ваши потребности и объект</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Проектирование</h4>
+                    <p>Разрабатываем техническое решение и смету</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Строительство</h4>
+                    <p>Выполняем все строительные и монтажные работы</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Сдача</h4>
+                    <p>Пусконаладка, обучение персонала, запуск</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Получите детальный расчет за 24 часа</h2>
+            <p>Подготовим коммерческое предложение с учетом ваших требований и бюджета</p>
+            <a href="#contact" class="cta-btn">
+                Оставить заявку
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <g transform="translate(300, 1200)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <circle r="150" />
+                    <circle r="100" />
+                    <circle r="50" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Отзывы</div>
+                <h2 class="section-title">Что говорят клиенты</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Сотрудничаем с ЭКСИТ более 10 лет. За это время построили 4 моечных комплекса. Всегда четкие сроки, качественная работа и отличный сервис."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">АТ</div>
+                        <div class="testimonial-info">
+                            <h4>Александр Т.</h4>
+                            <p>Директор АТК №1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Профессиональный подход к проектированию. Учли все нюансы нашего участка, предложили оптимальное решение. Мойка работает 3 года без нареканий."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ИМ</div>
+                        <div class="testimonial-info">
+                            <h4>Игорь М.</h4>
+                            <p>Владелец сети автомоек</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Быстро смонтировали оборудование Christ, провели обучение персонала. Техническая поддержка всегда на связи. Рекомендую как надежного подрядчика."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">СВ</div>
+                        <div class="testimonial-info">
+                            <h4>Сергей В.</h4>
+                            <p>Руководитель автобазы</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="blueprint-bg">
+            <svg viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="url(#grid2)" />
+                <g transform="translate(2000, 300)" stroke="#cbd5e1" stroke-width="1" fill="none" opacity="0.3">
+                    <rect x="0" y="0" width="350" height="500" />
+                    <line x1="116" y1="0" x2="116" y2="500" />
+                    <line x1="233" y1="0" x2="233" y2="500" />
+                    <line x1="0" y1="166" x2="350" y2="166" />
+                    <line x1="0" y1="333" x2="350" y2="333" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Готовы обсудить ваш проект?</h3>
+                    <p>Оставьте заявку или свяжитесь с нами напрямую. Мы ответим в течение 2 часов.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Телефон / WhatsApp</h4>
+                                <p>8 (915) 007-74-73</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>ecsito@mail.ru</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>г. Москва, ул. Молдавская, д. 2</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">💬</div>
+                            <div>
+                                <h4>Telegram</h4>
+                                <p>@ecsito</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form action="https://formsubmit.co/ecsito@mail.ru" method="POST">
+                        <input type="hidden" name="_subject" value="Новая заявка с сайта ЭКСИТ">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-group">
+                            <label>Ваше имя</label>
+                            <input type="text" name="Имя" placeholder="Иван Иванов" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Телефон / WhatsApp</label>
+                            <input type="tel" name="Телефон" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Описание проекта</label>
+                            <textarea name="Описание" placeholder="Расскажите о вашем объекте: тип мойки, примерная площадь, локация..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Оставить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="https://i.postimg.cc/pyN1snWk/logo-bez-fona.png" alt="ЭКСИТ" style="height: 45px;">
+                        <span class="logo-text">ЭКСИТ<span>.</span></span>
+                    </a>
+                    <p>Строительно-инжиниринговая компания. Специализируемся на создании современных моечных и гаражных комплексов с 1999 года.</p>
+                    <p style="margin-top: 16px; font-size: 13px;">ОГРН: 1237700380576 | ИНН: 9722047540</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#">Строительство под ключ</a></li>
+                        <li><a href="#">Монтаж оборудования</a></li>
+                        <li><a href="#">Поставка оборудования</a></li>
+                        <li><a href="#">Техническое обслуживание</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Проекты</a></li>
+                        <li><a href="#">Процесс работы</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><a href="tel:89150077473">8 (915) 007-74-73</a></li>
+                        <li><a href="mailto:ecsito@mail.ru">ecsito@mail.ru</a></li>
+                        <li><a href="#">@ecsito</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ООО «ЭКСИТ». Все права защищены.</p>
+                <div class="footer-social">
+                    <a href="#">TG</a>
+                    <a href="#">WA</a>
+                    <a href="#">📧</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+
+
+        // Navbar Scroll Effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(248, 250, 252, 0.98)';
+                nav.style.padding = '12px 0';
+            } else {
+                nav.style.background = 'rgba(248, 250, 252, 0.95)';
+                nav.style.padding = '15px 0';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Phone Input Mask
+        document.querySelector('input[type="tel"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value[0] === '7' || value[0] === '8') {
+                    value = value.substring(1);
+                }
+                let formatted = '+7';
+                if (value.length > 0) formatted += ' (' + value.substring(0, 3);
+                if (value.length >= 3) formatted += ') ' + value.substring(3, 6);
+                if (value.length >= 6) formatted += '-' + value.substring(6, 8);
+                if (value.length >= 8) formatted += '-' + value.substring(8, 10);
+                e.target.value = formatted;
+            }
+        });
+    </script>
+</body>
+</html>
