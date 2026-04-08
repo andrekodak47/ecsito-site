@@ -1861,7 +1861,7 @@
                     </div>
                 </div>
                 <div class="contact-form fade-in">
-                    <form action="https://formsubmit.co/ecsito@mail.ru" method="POST">
+                    <form id="contactForm">
                         <input type="hidden" name="_subject" value="Новая заявка с сайта ЭКСИТ">
                         <input type="hidden" name="_captcha" value="false">
                         <div class="form-group">
@@ -2009,6 +2009,47 @@
         });
 
 
+
+        // Form Submit Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.querySelector('input[name="Имя"]').value;
+            const phone = form.querySelector('input[name="Телефон"]').value;
+            const desc = form.querySelector('textarea[name="Описание"]').value;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalBtnText = btn.innerText;
+            
+            btn.innerText = 'Отправка...';
+            btn.disabled = true;
+
+            fetch('https://formsubmit.co/ajax/ecsito@mail.ru', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: 'Новая заявка с сайта ЭКСИТ',
+                    'Имя': name,
+                    'Телефон / WhatsApp': phone,
+                    'Описание проекта': desc
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Спасибо за заявку! Мы свяжемся с вами в течение 2 часов.');
+                form.reset();
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте написать напрямую нам на почту или в мессенджер.');
+                console.error(error);
+            })
+            .finally(() => {
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+            });
+        });
 
         // Navbar Scroll Effect
         let lastScroll = 0;
